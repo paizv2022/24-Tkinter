@@ -111,7 +111,6 @@ def print_repeat(entry_box, integer_box):
     for k in range(num):
         print(entry_box.get())
 
-
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------

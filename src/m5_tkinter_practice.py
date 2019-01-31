@@ -84,33 +84,32 @@ def main():
 
     entry_box = ttk.Entry(frame2)
     entry_box.grid(row=1, column=0)
-    entry_text = entry_box.get()
 
     hg_button = ttk.Button(frame2, text='Print Hello/Goodbye')
     hg_button.grid(row=3, column=0)
-    hg_button['command'] = (lambda: hello_goodbye(entry_text))
+    hg_button['command'] = lambda: hello_goodbye(entry_box)
 
     integer_entry = ttk.Entry(frame2)
     integer_entry.grid(row=4, column=0)
-    integer = integer_entry.get()
 
     repeat_button = ttk.Button(frame2, text='Repeat Text')
     repeat_button.grid(row=5, column=0)
-    repeat_button['command'] = lambda: print_repeat(integer)
+    repeat_button['command'] = lambda: print_repeat(entry_box, integer_entry)
 
     root2.mainloop()
 
 
-def hello_goodbye(text):
-    if text == 'ok':
+def hello_goodbye(entry_box):
+    if entry_box.get() == 'ok':
         print('Hello')
     else:
         print('Goodbye')
 
 
-def print_repeat(text, num):
+def print_repeat(entry_box, integer_box):
+    num = int(integer_box.get())
     for k in range(num):
-        print(text)
+        print(entry_box.get())
 
 
 # -----------------------------------------------------------------------------

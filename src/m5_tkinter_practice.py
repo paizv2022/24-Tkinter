@@ -3,8 +3,8 @@ This project lets you try out Tkinter/Ttk and practice it!
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Valeria Paiz.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import tkinter
 from tkinter import ttk
@@ -13,28 +13,24 @@ from tkinter import ttk
 def main():
     """ Constructs a GUI with stuff on it. """
     # -------------------------------------------------------------------------
-    # TODO: 2. After reading and understanding the m1e module,
+    # DONE: 2. After reading and understanding the m1e module,
     #   ** make a window that shows up. **
     # -------------------------------------------------------------------------
-
     # -------------------------------------------------------------------------
-    # TODO: 3. After reading and understanding the m2e module,
+    # DONE: 3. After reading and understanding the m2e module,
     #   ** put a Frame on the window. **
     # -------------------------------------------------------------------------
-
     # -------------------------------------------------------------------------
-    # TODO: 4. After reading and understanding the m2e module,
+    # DONE: 4. After reading and understanding the m2e module,
     #   ** put a Button on the Frame. **
     # -------------------------------------------------------------------------
-
     # -------------------------------------------------------------------------
-    # TODO: 5. After reading and understanding the m3e module,
+    # DONE: 5. After reading and understanding the m3e module,
     #   ** make your Button respond to a button-press **
     #   ** by printing   "Hello"  on the Console.     **
     # -------------------------------------------------------------------------
-
     # -------------------------------------------------------------------------
-    # TODO: 6. After reading and understanding the m4e module,
+    # DONE: 6. After reading and understanding the m4e module,
     #   -- Put an Entry box on the Frame.
     #   -- Put a second Button on the Frame.
     #   -- Make this new Button, when pressed, print "Hello"
@@ -43,7 +39,7 @@ def main():
     # -------------------------------------------------------------------------
 
     # -------------------------------------------------------------------------
-    # TODO: 7.
+    # DONE: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -67,8 +63,54 @@ def main():
     ####################################################################
 
     # -------------------------------------------------------------------------
-    # TODO: 8. As time permits, do other interesting GUI things!
+    # DONE: 8. As time permits, do other interesting GUI things!
     # -------------------------------------------------------------------------
+
+    # root = tkinter.Tk()
+    # frame = ttk.Frame(root, padding=20)
+    # frame.grid()
+    # button = ttk.Button(frame, text='Button 1')
+    # button.grid()
+    # root.mainloop()
+
+    root2 = tkinter.Tk()
+
+    frame2 = ttk.Frame(root2, padding=20)
+    frame2.grid()
+
+    hello_button = ttk.Button(frame2, text='Print Hello')
+    hello_button['command'] = lambda: print('Hello')
+    hello_button.grid(row=0, column=0)
+
+    entry_box = ttk.Entry(frame2)
+    entry_box.grid(row=1, column=0)
+    entry_text = entry_box.get()
+
+    hg_button = ttk.Button(frame2, text='Print Hello/Goodbye')
+    hg_button.grid(row=3, column=0)
+    hg_button['command'] = (lambda: hello_goodbye(entry_text))
+
+    integer_entry = ttk.Entry(frame2)
+    integer_entry.grid(row=4, column=0)
+    integer = integer_entry.get()
+
+    repeat_button = ttk.Button(frame2, text='Repeat Text')
+    repeat_button.grid(row=5, column=0)
+    repeat_button['command'] = lambda: print_repeat(integer)
+
+    root2.mainloop()
+
+
+def hello_goodbye(text):
+    if text == 'ok':
+        print('Hello')
+    else:
+        print('Goodbye')
+
+
+def print_repeat(text, num):
+    for k in range(num):
+        print(text)
 
 
 # -----------------------------------------------------------------------------
